@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nopcommerce-replicaset
+  labels:
+    app: nopcommerce
+  namespace: release
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nopcommerce
+  template:
+    metadata:
+      labels:
+        app: nopcommerce
+      name: nopcommerce-pod
+    spec:
+      containers:
+        - image: pjwesley7/nopcommerce:tagname
+          name: nopcommerce
+          ports:
+            - containerPort: 5000
+              protocol: TCP
