@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: apache2
+  name: apache2-deployment
+  namespace: web
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: apache2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: apache2
+      name: apache2-pod
+    spec:
+      containers:
+        - image: pjwesley7/apache2:1.0
+          name: apache2
+          ports:
+            - containerPort: 80
+              protocol: TCP
