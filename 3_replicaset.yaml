@@ -17,7 +17,7 @@ spec:
       name: nopcommerce-pod
     spec:
       containers:
-        - image: pjwesley7/nopcommerce:tagname
+        - image: pjwesley7/nopcommerce:latest
           name: nopcommerce
           ports:
             - containerPort: 5000
