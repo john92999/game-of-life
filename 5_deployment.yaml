@@ -22,7 +22,7 @@ spec:
       name: apache2-pod
     spec:
       containers:
-        - image: pjwesley7/apache2:1.0
+        - image: pjwesley7/apache2:2.0
           name: apache2
           ports:
             - containerPort: 80
